@@ -2,6 +2,7 @@ package com.example.pagination.api;
 
 import com.example.pagination.dtos.CarResponse;
 import com.example.pagination.services.CarService;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +19,8 @@ public class CarController {
     }
 
     @GetMapping
-    public List<CarResponse> getCars() {
-        return carService.getCars();
+    public List<CarResponse> getCarsPageable(Pageable pageable) { //dependency injection
+        System.out.println(pageable.getPageNumber() + "," + pageable.getPageSize() + "," + pageable.getSort());
+        return carService.getCars(pageable);
     }
 }
