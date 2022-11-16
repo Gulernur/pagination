@@ -19,7 +19,7 @@ public class CarService {
 
     public List<CarResponse> getCars() {
         List<Car> cars = carRepository.findAll();
-        List<CarResponse> response  = cars.stream().map(car -> new CarResponse(car))
+        List<CarResponse> response  = cars.stream().map(car -> new CarResponse(car)) //alle lister fremad java 8, har stream
                 .collect(Collectors.toList());
         return response;
     }
