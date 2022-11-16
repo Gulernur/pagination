@@ -12,11 +12,11 @@ import lombok.Setter;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL) //den inkludere KUN det der ikke er null.
 public class CarResponse {
-    int id;
+    Integer id;
     String brand;
     String model;
     String color;
-    int kilometers;
+    Integer kilometers;
 
     public CarResponse(Car carEntity) {
         this.id = carEntity.getId();
@@ -24,7 +24,5 @@ public class CarResponse {
         this.model = carEntity.getModel();
         this.color = carEntity.getColor();
         this.kilometers = carEntity.getKilometers();
-
     }
-
 }
